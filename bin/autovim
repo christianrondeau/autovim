@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# vim --cmd 'let &rtp = substitute(&rtp, $HOME."/\.vim", "alternate", "g")'
+vim -u ./src/vimrc.vim -S ./src/autovim.vim -not-a-term
