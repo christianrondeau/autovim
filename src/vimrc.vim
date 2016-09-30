@@ -1,3 +1,8 @@
+" Settings {{{
+set nocompatible
+filetype off
+" }}}
+
 " Regex {{{
 nnoremap / /\v
 vnoremap / /\v

@@ -1,3 +1,4 @@
 test:
-	./bin/autovim compress ./tests/scripts/noop.autovim -of ./tests/output/noop.compressed.vim
-	cmp ./tests/expected/noop.vim ./tests/output/noop.compressed.vim && echo 'pass' || echo 'fail'
+	rm -f ./tests/output/compressed-commands.expanded.vim
+	./bin/autovim compress ./tests/scripts/compressed-commands.autovim -of ./tests/output/compressed-commands.expanded.vim
+	cmp ./tests/expected/compressed-commands.expanded.vim ./tests/output/compressed-commands.expanded.vim && echo 'pass' || echo 'fail'
