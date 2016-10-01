@@ -1,2 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
-vim -u ./src/vimrc.vim -S ./src/autovim.vim --not-a-term --cmd 'let g:autovim_cmd="expand"'
+C=''
+for i in "$@"; do 
+  i="${i//\\/\\\\}"
+  C="$C\"${i//\"/\\\"}\","
+done
+A="let g:autovim_cmd=[$C\"\"]"
+B="exec vim -u ./src/vimrc.vim -S ./src/autovim.vim --not-a-term --cmd '$A'"
+eval "$B"

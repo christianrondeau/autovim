@@ -12,3 +12,7 @@ cnoremap g/ g/\v
 cnoremap g!/ g!/\v
 set gdefault " Use /g by default
 " }}}
+
+" Mappings {{{
+nnoremap ÿ yy
+" }}}

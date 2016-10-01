@@ -1,2 +1,2 @@
 " Compressed commands
-execute "normal! yy"
+execute "normal! Vs-\e"
