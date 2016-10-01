@@ -1,39 +1,35 @@
 # Autovim (UNDER DEVELOPMENT)
 
-Autovim is simply [Vimscript](http://vim.org) optimized for processing files using the command line. It also has with shortcuts to make it better suited for [code golfing](http://ppcg.stackexchange.com). It is directly inspired by [V](https://github.com/DrMcMayhem/V), but aims at also being useful for day to day use.
+Autovim is simply [Vimscript](http://vim.org) optimized for processing files using the command line. It also has special syntax additions, built-in mappinga and better defaults to make it better suited for [code golfing](http://codegolf.stackexchange.com). It is directly inspired by [V](https://github.com/DJMcMayhem/V), but aims at also being useful for day to day use.
 
 ## Why
 
-* It is less verbose for some commands. A good example is `exe "norm ".i."x"` which can be expressed `ñ ¡ix`
-* It can be used as a simple command line tool, e.g. `autovim -o -r "12i=\e"` will output 12 `=` to stdout
-* It allows compressing commands, like `yy` can be expressed as `ý` (and offer the tools to compress/uncompress the code)
-* It uses very magic and global regex by default
-* It has no other dependencies than vim (none!)
+* It is less verbose for some commands. A good example is `exe "norm yy".i."p"` which can be expressed `ñÿ¡ip`
+* It can be used as a simple command line tool, e.g. `autovim run myscript.autovim` will output the script result to stdout (or to a file)
+* It allows compressing commands, e.g. `yy` can be expressed a s`ÿ` (and also offers tools to compress/uncompress any Vimscript file)
+* It uses nocompatible, and very magic / global regex by default
+* It has no other dependencies than Vim itself
 
 ## Usage
 
-`autovim -f file.ext -r "script"` will run the specified script on file.ext.
-`autovim -o -i` will run the script passed in stdin, and write the output to stdout.
-`autovim -f file.ext -s script.autovim -a="arg1"` will run the script in `script.autovim`, and write the output to stdout while setting the global variable arg1.
-* `-d` can be used to leave vim opened and see every step
+`autovim run script.autovim` will run the specified script on whatever is provided to stdin, and write the output to stdout.
+
+See [Autovim Documentation](doc/index.md) for more examples.
 
 ## Syntax
 
-Any Vimscript code will work as is; Autovim will simply expand variables. Therefore, this:
+Any Vimscript code will work as is; Autovim will simply expand compressed expressions. Therefore, this:
 
-    if (a > 3)
-      echom "hello world"
-    endif
+    ñÿp
 
 is the exact equivalent of
 
-    í(¡a>3)echom"helloworld"ì
+    execute "normal! yyp"
 
-* Spaces before quotes are unnecessary
-* `if() ... endif` can be expressed `í() ... ì`
+See [Autovim Documentation](doc/index.md) for more syntax examples like `ñ` and mappings like `ÿ`.
 
-## Shortcuts
+## Resources
 
-* `dd` -> `ď`
-* `yy` -> `ý`
-* `yl` -> `ľ`
+* [Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com) for a great introduction to Vimscript
+* [Prpgramming Puzzles and Code Golf](http://codegolf.stackexchange.com) for crazy examples of efficient Vim (and other languages) usage
+* And remember Vim's built-in help: `:help` and `:helpgrep`
