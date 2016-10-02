@@ -1,6 +1,6 @@
 " Autovim processing script
 
-let s:debug=1
+let s:debug=0
 let s:inputfile=""
 let s:outputfile=""
 
