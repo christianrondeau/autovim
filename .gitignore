@@ -1,2 +1,3 @@
 tests/output/*
 !tests/output/.gitinclude
+*.sw[a-p]
