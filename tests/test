@@ -1,0 +1,10 @@
+#!/data/data/com.termux/files/usr/bin/bash
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+cd "${0%/*}"
+echo "Running tests..."
+echo "compress"
+rm -f ./output/compressed-commands.expanded.vim
+../bin/autovim expand ./scripts/compressed-commands.autovim --out ./output/compressed-commands.expanded.vim
+cmp ./expected/compressed-commands.expanded.vim ./output/compressed-commands.expanded.vim && echo -e "${GREEN}pass${NC}" || echo -e "${RED}pass${NC}"

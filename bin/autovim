@@ -5,5 +5,5 @@ for i in "$@"; do
   C="$C\"${i//\"/\\\"}\","
 done
 A="let g:autovim_cmd=[$C\"\"]"
-B="exec vim -u ./src/vimrc.vim -S ./src/autovim.vim --not-a-term --cmd '$A'"
+B="exec vim -u ${0%/*}/../src/vimrc.vim -S ${0%/*}/../src/autovim.vim --not-a-term --cmd '$A'"
 eval "$B"

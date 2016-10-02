@@ -18,7 +18,7 @@ try
 	endif
 
 	if(!filereadable(s:scriptfile))
-		throw "A script file is required"
+		throw "Script '".s:scriptfile."' is unreadable or does not exist"
 	endif
 
 	echom "Autovim: ".s:command
