@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-C=''
+ParamsArray=''
 for i in "$@"; do 
   i="${i//\\/\\\\}"
-  C="$C\"${i//\"/\\\"}\","
+  ParamsArray="$ParamsArray\"${i//\"/\\\"}\","
 done
-A="let g:autovim_cmd=[$C\"\"]"
-B="exec vim -u ${0%/*}/../src/vimrc.vim -S ${0%/*}/../src/autovim.vim --not-a-term --cmd '$A'"
-eval "$B"
+VimCmdScript="let g:autovim_cmd=[$ParamsArray\"\"]"
+VimLaunch="exec vim -u ${0%/*}/../src/vimrc.vim -S ${0%/*}/../src/autovim.vim --not-a-term --cmd '$VimCmdScript'"
+eval "$VimLaunch"

@@ -42,6 +42,7 @@ try
 
 	echom "Opening ".s:scriptfile
 	execute "noswap edit! ".s:scriptfile
+	normal! gg
 	" }}}
 
 	" Script processing {{{
@@ -73,6 +74,7 @@ try
 
 			echom "Opening ".s:inputfile
 			execute "noswap edit! ".s:inputfile
+			normal! gg
 		endif
 
 		" Run script

@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 cd "${0%/*}"
 echo "Running tests..."
 
-echo "compress"
+echo "expand"
 rm -f ./output/compressed-commands.expanded.vim
 ../bin/autovim expand ./scripts/compressed-commands.autovim --out ./output/compressed-commands.expanded.vim
 cmp ./expected/compressed-commands.expanded.vim ./output/compressed-commands.expanded.vim && echo -e "${GREEN}pass${NC}" || echo -e "${RED}fail${NC}"
