@@ -4,7 +4,13 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 cd "${0%/*}"
 echo "Running tests..."
+
 echo "compress"
 rm -f ./output/compressed-commands.expanded.vim
 ../bin/autovim expand ./scripts/compressed-commands.autovim --out ./output/compressed-commands.expanded.vim
-cmp ./expected/compressed-commands.expanded.vim ./output/compressed-commands.expanded.vim && echo -e "${GREEN}pass${NC}" || echo -e "${RED}pass${NC}"
+cmp ./expected/compressed-commands.expanded.vim ./output/compressed-commands.expanded.vim && echo -e "${GREEN}pass${NC}" || echo -e "${RED}fail${NC}"
+
+echo "run"
+rm -f ./output/commands-tests.result.vim
+../bin/autovim run ./scripts/commands-tests.autovim --in ./samples/sample.txt --out ./output/commands-tests.result.txt
+cmp ./expected/commands-tests.result.txt ./output/commands-tests.result.txt && echo -e "${GREEN}pass${NC}" || echo -e "${RED}fail${NC}"

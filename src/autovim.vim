@@ -1,6 +1,7 @@
 " Autovim processing script
 
-let s:debug=0
+let s:debug=1
+let s:inputfile=""
 let s:outputfile=""
 
 try
@@ -17,15 +18,14 @@ try
 		throw "A command is required. See ./doc for more information."
 	endif
 
-	if(!filereadable(s:scriptfile))
-		throw "Script '".s:scriptfile."' is unreadable or does not exist"
-	endif
-
 	echom "Autovim: ".s:command
 
 	let i = 2
 	while i < len(g:autovim_cmd)
-		if g:autovim_cmd[i] ==# "-o" || g:autovim_cmd[i] ==# "--out"
+		if g:autovim_cmd[i] ==# "-i" || g:autovim_cmd[i] ==# "--in"
+			let i += 1
+			let s:inputfile=g:autovim_cmd[i]
+		elseif g:autovim_cmd[i] ==# "-o" || g:autovim_cmd[i] ==# "--out"
 			let i += 1
 			let s:outputfile=g:autovim_cmd[i]
 		elseif g:autovim_cmd[i] ==# "-d" || g:autovim_cmd[i] ==# "--debug"
@@ -36,8 +36,12 @@ try
 	" }}}
 
 	" Open script {{{
+	if(!filereadable(s:scriptfile))
+		throw "Script '".s:scriptfile."' is unreadable or does not exist"
+	endif
+
 	echom "Opening ".s:scriptfile
-	execute "noswap edit ".s:scriptfile
+	execute "noswap edit! ".s:scriptfile
 	" }}}
 
 	" Script processing {{{
@@ -56,9 +60,23 @@ try
 	endif
 	" }}}
 
-	" Runing {{{
+	" Running {{{
 	if s:command ==# "run"
-		throw "running not implemented"
+		" Copy script
+		%y 
+
+		" Open input file
+		if len(s:inputfile) 
+			if(!filereadable(s:inputfile))
+				throw "Input file '".s:inputfile."' is unreadable or does not exist"
+			endif
+
+			echom "Opening ".s:inputfile
+			execute "noswap edit! ".s:inputfile
+		endif
+
+		" Run script
+		@" 
 	endif
 	" }}}
 
