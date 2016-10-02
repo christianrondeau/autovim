@@ -18,6 +18,7 @@
 These commands require autovim command line to run.
 
 * `ñ...`: `exe "normal! ..."`
+* `qñ...`: `let @q=...@q` and `normal! @q`
 
 ### Custom mappings
 
