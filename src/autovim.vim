@@ -52,9 +52,9 @@ try
 		" }}}
 	elseif s:command ==# "expand" || s:command ==# "run"
 		" Expanding' {{{
-		%sm/ÿ/yy/e
 		"g/^ñ/s/Q([^Q])Q/qqqqq\1@qq@q/g
 		%sm/^ñ\(.\+$\)/execute "normal! \1"/e
+		%sm/^qñ\(.\+$\)/let @q="\1@q"\rnormal! @q"/e
 		" }}}
 	else
 		throw "Invalid Autovim command: ".g:autovim_cmd

@@ -1,3 +1,5 @@
 " Duplicates every line
-let @q="yypj@q"
-ñ@q
+qñyypj
+
+" Writes EOL
+ñoEOL
