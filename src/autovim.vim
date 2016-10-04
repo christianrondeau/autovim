@@ -85,6 +85,8 @@ try
 			echom "Opening ".s:inputfile
 			execute "noswap edit! ".s:inputfile
 			normal! gg
+		else
+			enew!
 		endif
 
 		" Run script

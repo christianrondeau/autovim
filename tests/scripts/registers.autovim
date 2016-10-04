@@ -1,6 +1,3 @@
-" Empty file
-ñdG
-
 " Write register @a
 ñi@a: \e"apo\e
 

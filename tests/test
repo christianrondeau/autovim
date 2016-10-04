@@ -10,13 +10,14 @@ function test {
 	cmp -s ./expected/$1.expanded.vim ./output/$1.expanded.vim && echo -e "$1 expand ${GREEN}pass${NC}" || echo -e "$1 expand ${RED}fail${NC}"
 
 	rm -f ./output/$1.result.vim
-	../bin/autovim run ./scripts/$1.autovim --in ./samples/sample.txt --out ./output/$1.result.txt -@a "Hello \"\\/\\/orld\"" -@b 3
+	../bin/autovim run ./scripts/$1.autovim --out ./output/$1.result.txt "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
 	cmp -s ./expected/$1.result.txt ./output/$1.result.txt && echo -e "$1 run ${GREEN}pass${NC}" || echo -e "$1 run ${RED}fail${NC}"
 }
 
 echo "Running tests..."
-test normal
-test loops
-test registers
-test lines
-test mappings
+test normal --in ./samples/sample.txt
+test loops --in ./samples/sample.txt
+test registers -@a 'Hello "\/\/orld"' -@b 3
+test lines --in ./samples/sample.txt
+test mappings --in ./samples/sample.txt
+test uncompressed
