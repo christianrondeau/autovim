@@ -21,6 +21,7 @@ These commands require autovim command line to run.
 
 * `ñ...`: Runs the specified commands in _normal_ mode (`normal ...`)
 * `qñ...`: Loops the specified commands (same as `qq...@qq@q`)
+* `%ñ...`: Runs the specified commands in _normal_ mode on every line (`%normal ...`)
 
 ### Utilities inside ñ
 

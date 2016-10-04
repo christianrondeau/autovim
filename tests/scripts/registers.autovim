@@ -1,0 +1,8 @@
+" Empty file
+ñdG
+
+" Write register @a
+ñi@a: \e"apo\e
+
+" Use register @b value
+ñi@b: "\e®ba*\ea"

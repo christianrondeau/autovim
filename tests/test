@@ -3,14 +3,19 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 cd "${0%/*}"
+
+function test {
+	rm -f ./output/$1.expanded.vim
+	../bin/autovim expand ./scripts/$1.autovim --out ./output/$1.expanded.vim
+	cmp -s ./expected/$1.expanded.vim ./output/$1.expanded.vim && echo -e "$1 expand ${GREEN}pass${NC}" || echo -e "$1 expand ${RED}fail${NC}"
+
+	rm -f ./output/$1.result.vim
+	../bin/autovim run ./scripts/$1.autovim --in ./samples/sample.txt --out ./output/$1.result.txt -@a "Hello \"\\/\\/orld\"" -@b 3
+	cmp -s ./expected/$1.result.txt ./output/$1.result.txt && echo -e "$1 run ${GREEN}pass${NC}" || echo -e "$1 run ${RED}fail${NC}"
+}
+
 echo "Running tests..."
-
-echo "expand"
-rm -f ./output/compressed-commands.expanded.vim
-../bin/autovim expand ./scripts/compressed-commands.autovim --out ./output/compressed-commands.expanded.vim
-cmp ./expected/compressed-commands.expanded.vim ./output/compressed-commands.expanded.vim && echo -e "${GREEN}pass${NC}" || echo -e "${RED}fail${NC}"
-
-echo "run"
-rm -f ./output/commands-tests.result.vim
-../bin/autovim run ./scripts/commands-tests.autovim --in ./samples/sample.txt --out ./output/commands-tests.result.txt -@a "Hello \"\\/\\/orld\"" -@b 3
-cmp ./expected/commands-tests.result.txt ./output/commands-tests.result.txt && echo -e "${GREEN}pass${NC}" || echo -e "${RED}fail${NC}"
+test normal
+test loops
+test registers
+test lines
