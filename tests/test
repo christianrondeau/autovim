@@ -12,5 +12,5 @@ cmp ./expected/compressed-commands.expanded.vim ./output/compressed-commands.exp
 
 echo "run"
 rm -f ./output/commands-tests.result.vim
-../bin/autovim run ./scripts/commands-tests.autovim --in ./samples/sample.txt --out ./output/commands-tests.result.txt
+../bin/autovim run ./scripts/commands-tests.autovim --in ./samples/sample.txt --out ./output/commands-tests.result.txt -@a "Hello \"\\/\\/orld\"" -@b 3
 cmp ./expected/commands-tests.result.txt ./output/commands-tests.result.txt && echo -e "${GREEN}pass${NC}" || echo -e "${RED}fail${NC}"

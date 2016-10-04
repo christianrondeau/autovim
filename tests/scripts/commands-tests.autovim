@@ -1,5 +1,11 @@
 " Duplicates every line
 qñyypj
 
-" Writes EOL
-ñoEOL
+" Open two empty lines
+norm! 2o
+
+" Write register @a
+ñi@a: \e"ap2o\e
+
+" Use register @b value
+ñi@b: "\e®ba*\ea"

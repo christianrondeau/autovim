@@ -4,4 +4,7 @@ Line 2
 Line 2
 Line 3
 Line 3
-EOL
+
+@a: Hello "\/\/orld"
+
+@b: "***"

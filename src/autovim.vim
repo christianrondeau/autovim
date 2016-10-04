@@ -18,20 +18,28 @@ try
 		throw "A command is required. See ./doc for more information."
 	endif
 
-	echom "Autovim: ".s:command
+	echom "Autovim: " . s:command
 
-	let i = 2
-	while i < len(g:autovim_cmd)
-		if g:autovim_cmd[i] ==# "-i" || g:autovim_cmd[i] ==# "--in"
-			let i += 1
-			let s:inputfile=g:autovim_cmd[i]
-		elseif g:autovim_cmd[i] ==# "-o" || g:autovim_cmd[i] ==# "--out"
-			let i += 1
-			let s:outputfile=g:autovim_cmd[i]
-		elseif g:autovim_cmd[i] ==# "-d" || g:autovim_cmd[i] ==# "--debug"
+	let s:i = 2
+	while s:i < len(g:autovim_cmd)
+		let s:p = g:autovim_cmd[s:i]
+		if s:p ==# "-i" || s:p ==# "--in"
+			let s:i += 1
+			let s:inputfile=g:autovim_cmd[s:i]
+		elseif s:p ==# "-o" || s:p ==# "--out"
+			let s:i += 1
+			let s:outputfile=g:autovim_cmd[s:i]
+		elseif s:p ==# "-d" || s:p ==# "--debug"
 			let s:debug=1
+		elseif s:p =~# '^-@'
+			let s:pname = s:p[2]
+			let s:i += 1
+			let s:pvalue=g:autovim_cmd[s:i]
+			let s:pvalue = substitute(s:pvalue, '\\', '\\\\', "ge")
+			let s:pvalue = substitute(s:pvalue, '"', '\\"', "ge")
+			execute "let @" . s:pname . " = \"" . s:pvalue . "\""
 		endif
-		let i += 1
+		let s:i += 1
 	endwhile
 	" }}}
 
@@ -52,9 +60,10 @@ try
 		" }}}
 	elseif s:command ==# "expand" || s:command ==# "run"
 		" Expanding' {{{
-		"g/^ñ/s/Q([^Q])Q/qqqqq\1@qq@q/g
-		%sm/^ñ\(.\+$\)/execute "normal! \1"/e
-		%sm/^qñ\(.\+$\)/let @q="\1@q"\rnormal! @q"/e
+		silent g/\v^q?ñ/sm/\v"/\\"/e " Escape quotes
+		silent g/\v^q?ñ/sm/\v®(.)/".@\1."/e
+		%sm/\v^ñ(.+$)/execute "normal! \1"/e
+		%sm/\v^qñ(.+$)/let @q="\1@q"\rnormal! @q"/e
 		" }}}
 	else
 		throw "Invalid Autovim command: ".g:autovim_cmd
@@ -104,7 +113,7 @@ finally
 	if s:debug
 		messages
 	else
-		q!
+		quit!
 	endif
 	" }}}
 

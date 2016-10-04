@@ -1,3 +1,5 @@
 " Compressed commands
-ñVs-\e
+ñVs-
 qñI* \ej
+ñ®a"bp
+norm! iUntouched ñ®
