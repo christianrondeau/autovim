@@ -39,6 +39,14 @@ This project is mostly for learning purposes, but if you think you can use it yo
 
 To run tests, simply run `chmod +x ./tests/test` and run the script.
 
+## How does it work?
+
+Three things are happening:
+
+1. `./bin/autovim` takes the command line inputs and forward them to vim by setting a `g:autovim_cmd` variable using `--cmd`
+2. `./src/vimrc` is used to provide the runtime environment common to the scripts and autovim itself - it also defines mappings like `ÿ`
+3. `./src/autovim.vim` then parses the input, loads the script, do some regex replacements on it, and finally runs (source) the result on the input file
+
 ## Resources
 
 * [Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com) for a great introduction to Vimscript
