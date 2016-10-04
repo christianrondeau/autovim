@@ -5,5 +5,5 @@ for i in "$@"; do
   ParamsArray="$ParamsArray\"${i//\"/\\\"}\","
 done
 VimCmdScript="let g:autovim_cmd=[$ParamsArray\"\"]"
-VimLaunch="exec vim -u ${0%/*}/../src/vimrc.vim -S ${0%/*}/../src/autovim.vim --not-a-term --cmd '$VimCmdScript'"
+VimLaunch="exec vim -u ${0%/*}/../src/vimrc.vim --not-a-term -c '$VimCmdScript' -c 'source ${0%/*}/../src/autovim.vim'"
 eval "$VimLaunch"

@@ -1,2 +1,2 @@
 " Adds a * before each line
-execute "%normal! I* "
+execute "%normal I* "

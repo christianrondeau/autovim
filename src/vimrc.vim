@@ -15,4 +15,10 @@ set gdefault " Use /g by default
 
 " Mappings {{{
 nnoremap ÿ yy
+nnoremap ÿ yy
+nnoremap ỳ yh
+nnoremap ŷ yl
+nnoremap ý lyl
+nnoremap đ dd
+nnoremap ѷ gv
 " }}}

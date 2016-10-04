@@ -33,4 +33,9 @@ These special commands can be used inside a `ñ` line
 
 These commands require Autovim's `vimrc`, and are run directly by Vim.
 
-* `ÿ`: `yy`
+* `ÿ`: `yy` yanks current line
+* `ỳ`: `yh` yanks previous character
+* `ŷ`: `yl` yanks current character
+* `ý`: `lyl` yanks next character
+* `đ`: `dd` deletes current line
+* `ѷ`: `gv` recover previous visual selection

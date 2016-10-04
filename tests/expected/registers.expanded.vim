@@ -1,8 +1,8 @@
 " Empty file
-execute "normal! dG"
+execute "normal dG"
 
 " Write register @a
-execute "normal! i@a: \e\"apo\e"
+execute "normal i@a: \e\"apo\e"
 
 " Use register @b value
-execute "normal! i@b: \"\e".@b."a*\ea\""
+execute "normal i@b: \"\e".@b."a*\ea\""

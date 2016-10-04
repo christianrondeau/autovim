@@ -62,9 +62,9 @@ try
 		" Expanding' {{{
 		silent g/\v^.?ñ/sm/\v"/\\"/e " Escape quotes
 		silent g/\v^.?ñ/sm/\v®(.)/".@\1."/e
-		%sm/\v^ñ(.+$)/execute "normal! \1"/e
-		%sm/\v^qñ(.+$)/let @q="\1@q"\rnormal! @q"/e
-		%sm/\v^\%ñ(.+$)/execute "%normal! \1"/e
+		%sm/\v^ñ(.+$)/execute "normal \1"/e
+		%sm/\v^qñ(.+$)/let @q="\1@q"\rnormal @q"/e
+		%sm/\v^\%ñ(.+$)/execute "%normal \1"/e
 		" }}}
 	else
 		throw "Invalid Autovim command: ".g:autovim_cmd
