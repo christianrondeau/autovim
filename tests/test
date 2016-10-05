@@ -15,7 +15,7 @@ function test {
 }
 
 echo "Running tests..."
-test normal --in ./samples/sample.txt
+test normal
 test loops --in ./samples/sample.txt
 test registers -@a 'Hello "\/\/orld"' -@b 3
 test lines --in ./samples/sample.txt

@@ -15,19 +15,24 @@
 * `-d --debug`: Opens vim messages when done instead of exiting
 * `-@<register> value`: Sets a register value, e.g. `-@a 5` will allow pasting in your script using `"ap` or repeating a command using `®a<command>`
 
-## Autovim normal commands
+## Autovim script commands
 
 These commands require autovim command line to run.
 
 * `ñ...`: Runs the specified commands in _normal_ mode (`normal ...`)
 * `qñ...`: Loops the specified commands (same as `qq...@qq@q`)
 * `%ñ...`: Runs the specified commands in _normal_ mode on every line (`%normal ...`)
+* `@<register>=<expr>`: Executes an expression and assigns the result to a register (e.g. `@a=@x+1`)
+* `®<register>=<expr>`: Assigns a string to the register - autovim aliases are parsed (e.g. `®a=®xi#␛`)
 
 ### Utilities inside ñ
 
 These special commands can be used inside a `ñ` line
 
-* `®<register>`: Injects the value of the given register. If `@a` equals `5`, then `ñ®ap` will execute `5p` 
+* `®<register>`: Injects the value of the given register. If `@a` equals `5`, then `ñ®ap` will execute `5p`
+* `␛`: Sends `<esc>`
+* `␍`: Sends `<cr>`
+* `⌥<key>`: Sends `<ctrl> + <key>`
 
 ### Custom mappings
 

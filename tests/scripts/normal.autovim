@@ -1,2 +1,2 @@
 " Writes 'Match 1' and increments twice
-ñOMatch 1\e2\<c-a>
+ñiLine 1␍Match 1␛2⌥a

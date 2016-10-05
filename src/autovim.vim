@@ -53,23 +53,33 @@ try
 	normal! gg
 	" }}}
 
-	" Script processing {{{
 	if s:command ==# "compress"
 		" Compressing {{{
 		throw "compression not implemented"
 		" }}}
 	elseif s:command ==# "expand" || s:command ==# "run"
-		" Expanding' {{{
-		silent g/\v^.?ñ/sm/\v"/\\"/e " Escape quotes
-		silent g/\v^.?ñ/sm/\v®(.)/".@\1."/e
+		" Expanding {{{
+		function Expand()
+			sm/\v"/\\"/e " Escape quotes
+			sm/\v^@<!®(.)/".@\1."/e " Registers (except string begin)
+			sm/\v␛/\\\<esc\>/e
+			sm/\v␍/\\\<cr\>/e
+			sm/\v⌥(.)/\\\<c-\1\>/e
+			
+		endfunction
+
+		silent g/\v^([q%]?ñ|®.\=)/call Expand()
+		%sm/\v^®(.)\=(.+$)/let @\1 = "\2"/e
+		%sm/\v^\@(.)\=(.+$)/let @\1 = \2/e
 		%sm/\v^ñ(.+$)/execute "normal \1"/e
 		%sm/\v^qñ(.+$)/let @q="\1@q"\rnormal @q"/e
 		%sm/\v^\%ñ(.+$)/execute "%normal \1"/e
 		" }}}
 	else
+		" Invalid command {{{
 		throw "Invalid Autovim command: ".g:autovim_cmd
+		" }}}
 	endif
-	" }}}
 
 	" Running {{{
 	if s:command ==# "run"

@@ -1,5 +1,10 @@
 " Write register @a
 ñi@a: \e"apo\e
 
-" Use register @b value
-ñi@b: "\e®ba*\ea"
+" Set registers
+@c=@b+1-1
+®d=®c
+
+" Use register @d value
+ñi@b: "\e®da*\ea"
+
