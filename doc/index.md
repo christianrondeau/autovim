@@ -17,6 +17,10 @@
 
 ## Autovim syntax
 
+None of these functions are necessary to run a script with autovim. They can be useful to express commands in a more succint way (e.g. for [code golfing](https://codegolf.stackexchange.com).
+
+I suggest that you `source` the [edit/autovimrc.vim](edit/autovimrc.vim) file and make use of the digraph mappings for special symbols.
+
 ### Script compressed commands
 
 These commands require autovim command line to run. The expression following them will also be expanded.
@@ -68,7 +72,7 @@ Finally, a function can be executed and even repeated in normal mode:
 
 ### Loops
 
-Loops are `while` that increment a rrgister yo an upper bound. The syntax is `↻<register><lower-bound-expr>:<upper-bound-expr>`, ended by `e↻`.
+Loops are in fact a `while` that increments a register up to an upper bound. The syntax is `↻<register><lower-bound-expr>:<upper-bound-expr>`, ended by `e↻`.
 
     ↻i1:10
     ña®
