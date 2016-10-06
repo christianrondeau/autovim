@@ -10,7 +10,7 @@ Since this is still under development, installation is done manually; simply che
 
 `autovim run script.autovim` will run the specified script on whatever is provided to stdin, and write the output to stdout.
 
-See [Autovim Documentation](index.md) for more information.
+See [Autovim Documentation](doc/index.md) for more information.
 
 ## Why
 
@@ -31,7 +31,7 @@ is the exact equivalent of
 
     execute "normal! yy" . @x . "p"
 
-See [Autovim Documentation](index.md) for more syntax examples.
+See [Autovim Documentation](doc/index.md) for more syntax examples.
 
 ## Contributing
 
