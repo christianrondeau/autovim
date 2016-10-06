@@ -15,21 +15,62 @@
 * `-d --debug`: Opens vim messages when done instead of exiting
 * `-@<register> value`: Sets a register value, e.g. `-@a 5` will allow pasting in your script using `"ap` or repeating a command using `®a<command>`
 
-## Autovim script commands
+## Autovim syntax
 
-These commands require autovim command line to run.
+### Script compressed commands
+
+These commands require autovim command line to run. The expression following them will also be expanded.
 
 * `ñ...`: Runs the specified commands in _normal_ mode (`normal ...`)
 * `qñ...`: Loops the specified commands (same as `qq...@qq@q`)
 * `%ñ...`: Runs the specified commands in _normal_ mode on every line (`%normal ...`)
-* `@<register>=<expr>`: Executes an expression and assigns the result to a register (e.g. `@a=@x+1`)
 * `®<register>=<expr>`: Assigns a string to the register - autovim aliases are parsed (e.g. `®a=®xi#␛`)
 
-### Utilities inside ñ
+### Script uncompressed commands
 
-These special commands can be used inside a `ñ` line
+Similar to compressed commands, but the expressions will not be uncompressed.
 
-* `®<register>`: Injects the value of the given register. If `@a` equals `5`, then `ñ®ap` will execute `5p`
+* `@<register>=<expr>`: Executes an expression and assigns the result to a register (e.g. `@a=@x+1`)
+
+### Functions
+
+You can declare Vimscript functions using `ƒ<name>` (limited to one character), which will bootstrap the definition (with `...` parameters) as well as a repeatable normal mapping `ƒ<name>`. Functions can define an arbitrary amount of lines, and end with `˼ƒ`.
+
+    ƒT
+    ñI*
+    ˼ƒ
+
+The resulting Vimscript will be similar to:
+
+    function! H(...)
+      normal I*
+    endfunction
+
+You can reference function arguments inside compressed commands using `ª<index>` (`ª1` translates to `a:1`):
+
+    @a=ª1+ª2
+
+You can also return a value using `↶`(note that this is a compressed command, but Vim will allow arithmetics on the resulting strings):
+
+    ↶ª1+ª2
+
+A function can be called and its result assigned to a register too:
+
+    @x=T(2+3)
+
+It is possible to declare single line functions:
+
+    ƒHñiHello World!␍
+
+Finally, a function can be executed and even repeated in normal mode:
+
+    ñ3ƒH
+
+### Utilities inside compressed commands
+
+These special commands can be used inside lines like `ñ`.
+
+* `®<register>`: Injects the value of the given register. If `@a` equals `5`, then `ñ®ap` will execute `5p` in _normal_ mode.
 * `␛`: Sends `<esc>`
 * `␍`: Sends `<cr>`
 * `⌥<key>`: Sends `<ctrl> + <key>`
