@@ -15,10 +15,10 @@ function test {
 }
 
 echo "Running tests..."
+test uncompressed
 test normal
-test loops --in ./samples/sample.txt
+test macros --in ./samples/sample.txt
 test registers -@a 'Hello "\/\/orld"' -@b 3
 test lines --in ./samples/sample.txt
 test mappings --in ./samples/sample.txt
-test uncompressed
 test functions
