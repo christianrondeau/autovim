@@ -1,0 +1,16 @@
+" Single line function
+ƒHñiHello␍
+
+" Calls H 3 times
+ñ3ƒH
+
+" Multi line function
+ƒT
+ñiValue: "ª1"␍
+@a=ª1+2
+↶ª1+@a
+˼ƒ
+
+" Calls T with param
+@x=T(2+3)
+ñiValue: ®x␍

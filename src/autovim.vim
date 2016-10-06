@@ -48,7 +48,7 @@ try
 		throw "Script '".s:scriptfile."' is unreadable or does not exist"
 	endif
 
-	echom "Opening ".s:scriptfile
+	echom "Opening script ".s:scriptfile
 	execute "noswap edit! ".s:scriptfile
 	normal! gg
 	" }}}
@@ -59,21 +59,56 @@ try
 		" }}}
 	elseif s:command ==# "expand" || s:command ==# "run"
 		" Expanding {{{
-		function Expand()
-			sm/\v"/\\"/e " Escape quotes
-			sm/\v^@<!®(.)/".@\1."/e " Registers (except string begin)
+		function ExpandQuoted()
+
+			" Escape quotes
+			sm/\v"/\\"/e 
+
+			" Registers (except string begin)
+			sm/\v^@<!®(.)/".@\1."/e
+
+			" Keys
 			sm/\v␛/\\\<esc\>/e
 			sm/\v␍/\\\<cr\>/e
 			sm/\v⌥(.)/\\\<c-\1\>/e
+
+			" Variables
+			sm/\vª(.)/".a:\1."/e
 			
 		endfunction
+		
+		function ExpandUnquoted()
 
-		silent g/\v^([q%]?ñ|®.\=)/call Expand()
+			" Variables
+			sm/\vª(.)/a:\1/e
+
+		endfunction
+
+		" Expands single-line functions
+		%sm/\v^ƒ(.)(.+$)/nmap ƒ\1 @=':call \1()<c-v><cr>'<cr>\rfunction! \1(...)\r\2\rendfunction/e
+
+		" Expands multi-line functions
+		%sm/\v^ƒ(.)$/nmap ƒ\1 @=':call \1()<c-v><cr>'<cr>\rfunction! \1(...)/e
+		%sm/\v^˼ƒ$/endfunction/e
+
+		" Expands special autovim chars
+		silent g/\v^([q%]?ñ|®.\=|↶)/call ExpandQuoted()
+		silent g/\v^(\@.\=)/call ExpandUnquoted()
+
+		" Expands ®=
 		%sm/\v^®(.)\=(.+$)/let @\1 = "\2"/e
+
+		" Expands @=
 		%sm/\v^\@(.)\=(.+$)/let @\1 = \2/e
-		%sm/\v^ñ(.+$)/execute "normal \1"/e
+
+		" Expands qñ
 		%sm/\v^qñ(.+$)/let @q="\1@q"\rnormal @q"/e
-		%sm/\v^\%ñ(.+$)/execute "%normal \1"/e
+
+		" Expands ñ
+		%sm/\v^(\%)?ñ(.+$)/execute "\1normal \2"/e
+
+		" Expands ↶
+		%sm/\v^↶(.+)/return \1/e
 		" }}}
 	else
 		" Invalid command {{{
@@ -86,7 +121,7 @@ try
 		" Copy script
 		%y 
 
-		" Open input file
+		" Open input file / create buffer
 		if len(s:inputfile) 
 			if(!filereadable(s:inputfile))
 				throw "Input file '".s:inputfile."' is unreadable or does not exist"
