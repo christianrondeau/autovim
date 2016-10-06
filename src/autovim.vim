@@ -89,7 +89,7 @@ try
 
 		" Expands multi-line functions
 		%sm/\v^ƒ(.)$/nmap ƒ\1 @=':call \1()<c-v><cr>'<cr>\rfunction! \1(...)/e
-		%sm/\v^˼ƒ$/endfunction/e
+		%sm/\v^eƒ$/endfunction/e
 
 		" Expands special autovim chars
 		silent g/\v^([q%]?ñ|®.\=|↶)/call ExpandQuoted()

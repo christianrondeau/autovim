@@ -34,11 +34,11 @@ Similar to compressed commands, but the expressions will not be uncompressed.
 
 ### Functions
 
-You can declare Vimscript functions using `ƒ<name>` (limited to one character), which will bootstrap the definition (with `...` parameters) as well as a repeatable normal mapping `ƒ<name>`. Functions can define an arbitrary amount of lines, and end with `˼ƒ`.
+You can declare Vimscript functions using `ƒ<name>` (limited to one character), which will bootstrap the definition (with `...` parameters) as well as a repeatable normal mapping `ƒ<name>`. Functions can define an arbitrary amount of lines, and end with `eƒ`.
 
     ƒT
     ñI*
-    ˼ƒ
+    eƒ
 
 The resulting Vimscript will be similar to:
 
