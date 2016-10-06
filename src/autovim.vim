@@ -91,6 +91,10 @@ try
 		%sm/\v^ƒ(.)$/nmap ƒ\1 @=':call \1()<c-v><cr>'<cr>\rfunction! \1(...)/e
 		%sm/\v^eƒ$/endfunction/e
 
+		" Expands multi-line loops
+		%sm/\v^↻(.)([^:]+):(.+$)/let @\1=\2-1\rwhile @\1<\3\rlet @\1=@\1+1/e
+		%sm/\v^e↻$/endwhile/e
+
 		" Expands special autovim chars
 		silent g/\v^([q%]?ñ|®.\=|↶)/call ExpandQuoted()
 		silent g/\v^(\@.\=)/call ExpandUnquoted()

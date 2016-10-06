@@ -66,6 +66,14 @@ Finally, a function can be executed and even repeated in normal mode:
 
     ñ3ƒH
 
+### Loops
+
+Loops are `while` that increment a rrgister yo an upper bound. The syntax is `↻<register><lower-bound-expr>:<upper-bound-expr>`, ended by `e↻`.
+
+    ↻i1:10
+    ña®
+    e↻
+
 ### Utilities inside compressed commands
 
 These special commands can be used inside lines like `ñ`.
