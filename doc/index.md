@@ -12,6 +12,7 @@
 
 * `-o --out`: By default, outputs to stdout. Specify `-out file.txt` to write to a file instead.
 * `-i --in`: The starting buffer file path.
+* `-ni --no-in`: To skip reading from stdin
 * `-d --debug`: Opens vim messages when done instead of exiting
 * `-@<register> value`: Sets a register value, e.g. `-@a 5` will allow pasting in your script using `"ap` or repeating a command using `®a<command>`
 
