@@ -4,9 +4,8 @@ ParamsArray=''
 ReadFromStdIn=true
 for i in "$@"; do 
 	# Check if we need to read from stdin
-	if [[ $i == "-i" || $i == "--in" ]] ; then
+	if [[ $i == "-i" || $i == "--in" || $i == "-ni" || $i == "--no-in"  ]] ; then
 		ReadFromStdIn=false
-		break
 	fi
 
 	# Escape input parameters ad put in a comma separated atring list
@@ -15,7 +14,7 @@ for i in "$@"; do
 done
 
 # Read from stdin
-if [ $ReadFromStdIn ]; then
+if [ $ReadFromStdIn = true ]; then
 	StdInTempFile=$(mktemp)
 	while read input; do
 		echo $input | tee -a "$StdInTempFile" > /dev/null
@@ -29,14 +28,19 @@ StdOutTempFile=$(mktemp -u)
 # Build the Vim command line
 VimCmdScript="let g:autovim_cmd=[$ParamsArray\"\"]"
 VimTmpScript="let g:autovim_tmp=\"$StdOutTempFile\""
-VimLaunch="vim -u ${0%/*}/../src/vimrc.vim --not-a-term -c '$VimCmdScript' -c '$VimTmpScript' -c 'source ${0%/*}/../src/autovim.vim'"
+VimLaunch="exec vim -u ${0%/*}/../src/vimrc.vim --not-a-term -c '$VimCmdScript' -c '$VimTmpScript' -S '${0%/*}/../src/autovim.vim'"
 
 # Launch
 eval "$VimLaunch"
 
-# If the temp file was used, print to stdout
-if [ -f $StdOutTempFile ]; then
+# If the in temp file was used clear it
+if [ -f "$StdInTempFile" ]; then
+	rm "$StdInTempFile"
+fi
+
+# If the out temp file was used, print to stdout and clear it
+if [ -f "$StdOutTempFile" ]; then
 	cat "$StdOutTempFile"
-	rm $StdOutTempFile
+	rm "$StdOutTempFile"
 fi
 

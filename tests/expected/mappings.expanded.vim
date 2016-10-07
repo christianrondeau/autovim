@@ -1,1 +1,1 @@
-execute "normal ÿpŷplýp$ỳPjđllv3l\e0ѷr_"
+execute "normal ÿpŷplýp$ỳPjđllv3l\<esc>0ѷr_"

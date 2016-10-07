@@ -6,7 +6,7 @@ cd "${0%/*}"
 
 function test {
 	rm -f ./output/$1.expanded.vim
-	../bin/autovim expand ./scripts/$1.autovim --out ./output/$1.expanded.vim
+	../bin/autovim expand ./scripts/$1.autovim --no-in --out ./output/$1.expanded.vim
 	cmp -s ./expected/$1.expanded.vim ./output/$1.expanded.vim && echo -e "$1 expand ${GREEN}pass${NC}" || echo -e "$1 expand ${RED}fail${NC}"
 
 	rm -f ./output/$1.result.vim
@@ -15,11 +15,11 @@ function test {
 }
 
 echo "Running tests..."
-test uncompressed
-test normal
+test uncompressed --no-in
+test normal --no-in
 test macros --in ./samples/sample.txt
-test registers -@a 'Hello "\/\/orld"' -@b 3
+test registers --no-in -@a 'Hello "\/\/orld"' -@b 3
 test lines --in ./samples/sample.txt
 test mappings --in ./samples/sample.txt
-test functions
-test loops
+test functions --no-in
+test loops --no-in
