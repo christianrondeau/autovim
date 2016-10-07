@@ -1,8 +1,13 @@
 " Settings {{{
 set nocompatible
 filetype off
-scriptencoding utf-8
 set encoding=utf-8
+scriptencoding utf-8
+" }}}
+
+" Runtime settings {{{
+set visualbell t_vb=               " No screen flash (Android)
+set noerrorbells                   " No error sounds
 " }}}
 
 " Regex {{{

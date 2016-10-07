@@ -1,4 +1,5 @@
 " Autovim processing script
+scriptencoding utf-8
 
 let s:debug=0
 let s:inputfile=""
