@@ -1,9 +1,25 @@
 #!/usr/bin/env bash
+
+# Prepare a file if stdout is required
+TempFile=$(mktemp -u)
+
+# Escape input parameters ad put in a comma separated atring list
 ParamsArray=''
 for i in "$@"; do 
   i="${i//\\/\\\\}"
   ParamsArray="$ParamsArray\"${i//\"/\\\"}\","
 done
+
+# Build the Vim command line
 VimCmdScript="let g:autovim_cmd=[$ParamsArray\"\"]"
-VimLaunch="exec vim -u ${0%/*}/../src/vimrc.vim --not-a-term -c '$VimCmdScript' -c 'source ${0%/*}/../src/autovim.vim'"
+VimTmpScript="let g:autovim_tmp=\"$TempFile\""
+VimLaunch="vim -u ${0%/*}/../src/vimrc.vim --not-a-term -c '$VimCmdScript' -c '$VimTmpScript' -c 'source ${0%/*}/../src/autovim.vim'"
+
+# Launch
 eval "$VimLaunch"
+
+# If the temp file was used, print to stdout
+if [ -f $TempFile ];
+then
+	cat "$TempFile"
+fi

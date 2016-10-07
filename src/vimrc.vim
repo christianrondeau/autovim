@@ -1,6 +1,8 @@
 " Settings {{{
 set nocompatible
 filetype off
+scriptencoding utf-8
+set encoding=utf-8
 " }}}
 
 " Regex {{{

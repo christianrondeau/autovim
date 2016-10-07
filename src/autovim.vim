@@ -41,6 +41,13 @@ try
 		endif
 		let s:i += 1
 	endwhile
+
+	if !strlen(s:outputfile)
+		if !exists("g:autovim_tmp")
+			throw "Autovim temp file not defined."
+		endif
+		let s:outputfile = g:autovim_tmp
+	endif
 	" }}}
 
 	" Open script {{{
@@ -148,8 +155,7 @@ try
 		echom "Writing output to ".s:outputfile
 		execute "write! ".s:outputfile
 	else
-		echom "Writing to stdout"
-		write !tee
+		echom "No output file defined"
 	endif
 	" }}}
 
