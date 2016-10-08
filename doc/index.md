@@ -35,7 +35,7 @@ These commands allow executing *compressed* expressions; strings that are typica
 
 ### Script uncompressed commands
 
-Similar to compressed commands, but the expressions will not be uncompressed.
+Similar to compressed commands, but the expressions will not be uncompressed Only `ª` and built-in functions will be expanded.
 
 * `@<register>=<expr>`: Executes an expression and assigns the result to a register (e.g. `@a=@x+1`)
 * `@+=<expr>`, `@-=<expr>`: Increments/decrements by the expression
@@ -102,3 +102,7 @@ These commands require Autovim's `vimrc`, and are run directly by Vim.
 * `ý`: `lyl` yanks next character
 * `đ`: `dd` deletes current line
 * `ѷ`: `gv` recover previous visual selection
+
+## Built-in functions
+
+* `Rnd(max)` (or `¿` in compressed commands) returns an integer between 1 and *max*.

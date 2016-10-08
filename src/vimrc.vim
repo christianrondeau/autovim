@@ -28,3 +28,15 @@ nnoremap ý lyh
 nnoremap đ dd
 nnoremap ѷ gv
 " }}}
+
+" Functions {{{
+let s:rnd = localtime() % 0x10000
+function! Rnd(...)
+	let l:max = 2
+	if a:0 > 0
+		let l:max = a:1
+	endif
+	let s:rnd = (s:rnd * 31421 + 6927) % 0x10000
+	return s:rnd % l:max + 1
+endfunction
+" }}}

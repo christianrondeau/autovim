@@ -83,6 +83,9 @@ try
 			" Variables
 			sm/\vª(.)/".a:\1."/e
 			
+			" Built-in functions
+			sm/\v¿(\d*)/".Rnd(\1)."/e
+			
 		endfunction
 		
 		function ExpandUnquoted()
@@ -90,6 +93,9 @@ try
 			" Variables
 			sm/\vª(.)/a:\1/e
 
+			" Built-in functions
+			sm/\v¿(\d*)/Rnd(\1)/e
+			
 		endfunction
 
 		" Expands single-line functions
