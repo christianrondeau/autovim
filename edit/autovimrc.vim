@@ -8,8 +8,8 @@ set encoding=utf-8
 autocmd BufNewFile *.autovim set filetype=vim
 
 augroup filetype_autovim
-	autocmd!
-	autocmd FileType vim setlocal noautoindent nocindent nosmartindent
+  autocmd!
+  autocmd FileType vim setlocal noautoindent nocindent nosmartindent
 augroup END
 
 " Commands
@@ -22,6 +22,7 @@ dig ar  170  " ª argument
 dig re  8630 " ↶ return
 dig fo  8635 " ↻ for
 dig ct  8997 " ⌥ ctrl
+dig gr  9638 " ▦ grid
 
 " Mappings
 dig yy 255   " ÿ

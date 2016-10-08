@@ -39,4 +39,17 @@ function! Rnd(...)
 	let s:rnd = (s:rnd * 31421 + 6927) % 0x10000
 	return s:rnd % l:max + 1
 endfunction
+
+function! Grd(w,h,c)
+	let l:x = a:w
+	let l:y = a:h
+	while l:y > 0
+		if l:x > 0
+			execute "normal ".l:x."a".a:c
+		endif
+		normal o
+		let l:y = l:y - 1
+	endwhile
+	execute "normal dd".a:h."k"
+endfunction
 " }}}

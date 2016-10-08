@@ -1,7 +1,6 @@
 " Autovim expanding script
 scriptencoding utf-8
 
-" Expanding {{{
 function ExpandQuoted()
 
 	" Escape quotes
@@ -70,4 +69,6 @@ silent g/\v^(\@.\=)/call ExpandUnquoted()
 
 	" Expands ↶
 	%sm/\v^↶(.+)/return \1/e
-	" }}}
+
+	" Built-in functions
+	%sm/\v▦(.+),(.+),(.*)$/call Grd(\1, \2, "\3")/e
