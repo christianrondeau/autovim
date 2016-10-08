@@ -38,6 +38,8 @@ These commands allow executing *compressed* expressions; strings that are typica
 Similar to compressed commands, but the expressions will not be uncompressed.
 
 * `@<register>=<expr>`: Executes an expression and assigns the result to a register (e.g. `@a=@x+1`)
+* `@+=<expr>`, `@-=<expr>`: Increments/decrements by the expression
+* `@++`, `@--`: Increments/decrements by one
 
 ### Functions
 
