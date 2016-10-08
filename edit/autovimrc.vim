@@ -14,7 +14,7 @@ augroup END
 
 " Commands
 dig no  241  " ñ normal
-dig re  174  " ® register
+dig rg  174  " ® register
 dig es  9243 " ␛ escape
 dig cr  9229 " ␍ cr (enter)
 dig fu  402  " ƒ function

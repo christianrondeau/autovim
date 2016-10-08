@@ -28,7 +28,7 @@ StdOutTempFile=$(mktemp -u)
 # Build the Vim command line
 VimCmdScript="let g:autovim_cmd=[$ParamsArray\"\"]"
 VimTmpScript="let g:autovim_tmp=\"$StdOutTempFile\""
-VimLaunch="exec vim -u ${0%/*}/../src/vimrc.vim --not-a-term -c '$VimCmdScript' -c '$VimTmpScript' -S '${0%/*}/../src/autovim.vim'"
+VimLaunch="vim -u ${0%/*}/../src/vimrc.vim --not-a-term -c '$VimCmdScript' -c '$VimTmpScript' -S '${0%/*}/../src/autovim.vim'"
 
 # Launch
 eval "$VimLaunch"
