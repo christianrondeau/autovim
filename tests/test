@@ -7,11 +7,11 @@ cd "${0%/*}"
 function test {
 	rm -f ./output/$1.expanded.vim
 	../bin/autovim expand ./scripts/$1.autovim --no-in --out ./output/$1.expanded.vim
-	diff -q --strip-trailing-cr ./expected/$1.expanded.vim ./output/$1.expanded.vim && echo -e "$1 expand ${GREEN}pass${NC}" || echo -e "$1 expand ${RED}fail${NC}"
+	diff -q ./expected/$1.expanded.vim ./output/$1.expanded.vim && echo -e "$1 expand ${GREEN}pass${NC}" || echo -e "$1 expand ${RED}fail${NC}"
 
 	rm -f ./output/$1.result.vim
 	../bin/autovim run ./scripts/$1.autovim --out ./output/$1.result.txt "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
-	diff -q --strip-trailing-cr ./expected/$1.result.txt ./output/$1.result.txt && echo -e "$1 run ${GREEN}pass${NC}" || echo -e "$1 run ${RED}fail${NC}"
+	diff -q ./expected/$1.result.txt ./output/$1.result.txt && echo -e "$1 run ${GREEN}pass${NC}" || echo -e "$1 run ${RED}fail${NC}"
 }
 
 echo "Running tests..."

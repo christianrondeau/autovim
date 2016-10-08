@@ -18,13 +18,15 @@
 
 ## Autovim syntax
 
-None of these functions are necessary to run a script with autovim. They can be useful to express commands in a more succint way (e.g. for [code golfing](https://codegolf.stackexchange.com).
+None of these functions are necessary to run a script with autovim. They can be useful to express commands in a more succint way (e.g. for [code golfing](https://codegolf.stackexchange.com)).
 
-I suggest that you `source` the [edit/autovimrc.vim](edit/autovimrc.vim) file and make use of the digraph mappings for special symbols.
+Note that all variables in *compressed* commands use *registers*. Keep this in mind when recording macros or yanking.
+
+To make editing these scripts easier,you can `source` the [edit/autovimrc.vim](edit/autovimrc.vim) file and make use of the digraph mappings for special symbols.
 
 ### Script compressed commands
 
-These commands require autovim command line to run. The expression following them will also be expanded.
+These commands allow executing *compressed* expressions; strings that are typically run in *normal* mode.
 
 * `ñ...`: Runs the specified commands in _normal_ mode (`normal ...`)
 * `qñ...`: Loops the specified commands (same as `qq...@qq@q`)
