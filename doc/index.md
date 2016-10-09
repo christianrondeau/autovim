@@ -31,7 +31,7 @@ These commands allow executing *compressed* expressions; strings that are typica
 * `ñ...`: Runs the specified commands in _normal_ mode (`normal ...`)
 * `qñ...`: Loops the specified commands (same as `qq...@qq@q`)
 * `%ñ...`: Runs the specified commands in _normal_ mode on every line (`%normal ...`)
-    * `⁝...` p: Runs the specified cpmmand in _command_ mode (`execute "..."`)
+    * `⁝...` p: Runs the specified cpmmand in _command_ mode (`execute "..."`9638)
 * `®<register>=<expr>`: Assigns a string to the register - autovim aliases are parsed (e.g. `®a=®xi#␛`)
 
 ### Script uncompressed commands
@@ -102,6 +102,7 @@ These commands require Autovim's `vimrc`, and are run directly by Vim.
 * `ŷ`: `yl` yanks current character
 * `ý`: `lyl` yanks next character
 * `đ`: `dd` deletes current line
+* `ğ`: `gg` moves to the beginning of the file
 * `ѷ`: `gv` recover previous visual selection
 
 ## Built-in functions

@@ -31,4 +31,5 @@ dig yh 7923  " ỳ
 dig yl 375   " ŷ
 dig ly 253   " ý
 dig dd 273   " đ
+dig gg 287   " ğ
 dig gv 1143  " ѷ

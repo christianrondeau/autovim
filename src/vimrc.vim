@@ -27,6 +27,7 @@ nnoremap ŷ yl
 nnoremap ý lyh
 nnoremap đ dd
 nnoremap ѷ gv
+nnoremap ğ gg
 " }}}
 
 " Functions {{{
