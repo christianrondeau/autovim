@@ -1,5 +1,5 @@
 " Autovim files editing config
-" You can add source .../autovim/edit/vimrc if you want
+" You can add `source .../autovim/edit/vimrc` ti your own vimrc if you want
 
 set nocompatible
 scriptencoding utf-8
@@ -23,6 +23,7 @@ dig re  8630 " ↶ return
 dig fo  8635 " ↻ for
 dig ct  8997 " ⌥ ctrl
 dig gr  9638 " ▦ grid
+dig ex  8285 " ⁝ execute
 
 " Mappings
 dig yy 255   " ÿ

@@ -3,9 +3,11 @@
 " Command: ./bin/autovim run examples/layered-cake.autovim -ni -@n 3
 
 ®z=Vkyjply4lpjy4hp
-ñ2i+\e5i-\eo||\e5i \e®n@zddl4xggd$i_|_|_
-exe "%ce ".(@n*4+3)
+ñ2i+␛5i-␛o||␛5i ␛®n@zddl4xggd$i_|_|_
+@w=15
+⁝%ce ®w
 
+" " Ungolfed:
 " fu A(n)
 " 	let @z="Vkyjply4lpjy4hp"
 " 	exe "norm 2i+\e5i-\eo||\e5i \e".a:n."@zddl4xggd$i_|_|_"

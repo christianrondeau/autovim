@@ -31,6 +31,7 @@ These commands allow executing *compressed* expressions; strings that are typica
 * `ñ...`: Runs the specified commands in _normal_ mode (`normal ...`)
 * `qñ...`: Loops the specified commands (same as `qq...@qq@q`)
 * `%ñ...`: Runs the specified commands in _normal_ mode on every line (`%normal ...`)
+    * `⁝...` p: Runs the specified cpmmand in _command_ mode (`execute "..."`)
 * `®<register>=<expr>`: Assigns a string to the register - autovim aliases are parsed (e.g. `®a=®xi#␛`)
 
 ### Script uncompressed commands
