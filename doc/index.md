@@ -108,3 +108,4 @@ These commands require Autovim's `vimrc`, and are run directly by Vim.
 ## Built-in functions
 
 * `Rnd(max)` (or `¿` in compressed commands) returns an integer between 1 and *max*.
+* `Grd(width, height, char)` (or `▦<width-expr>,<height-expr>,<char-expr>` in compressed commands) draws a grid and returns the cursor to the first character (top-left)
