@@ -2,7 +2,9 @@
 scriptencoding utf-8
 
 " Wrap parenthesis in non-quotes
-let @p="f(i\".\e%a.\"\e@q"
+let @p="f(i\".\e%a.\"\e@p"
+
+ñğ0(m[2]*3-2)j®llr(m[0])
 
 function ExpandQuoted()
 
