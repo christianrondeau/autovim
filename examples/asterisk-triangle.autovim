@@ -1,0 +1,12 @@
+" Link: http://codegolf.stackexchange.com/questions/95780/draw-an-asterisk-triangle
+" Command: ./bin/autovim run examples/asterisk-triangle.autovim -ni -@n 5
+" Output:
+" *
+" **
+" ***
+" ****
+" *****
+" 17 bytes
+↻i1:@n
+ñ®ia*␛o
+e↻
