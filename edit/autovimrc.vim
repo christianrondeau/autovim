@@ -13,17 +13,18 @@ augroup filetype_autovim
 augroup END
 
 " Commands
-dig no  241  " ñ normal
-dig rg  174  " ® register
-dig es  9243 " ␛ escape
-dig cr  9229 " ␍ cr (enter)
-dig fu  402  " ƒ function
-dig ar  170  " ª argument
-dig re  8630 " ↶ return
-dig fo  8635 " ↻ for
-dig ct  8997 " ⌥ ctrl
-dig gr  9638 " ▦ grid
-dig ex  8285 " ⁝ execute
+dig no 241  " ñ normal
+dig rg 174  " ® register
+dig es 9243 " ␛ escape
+dig cr 9229 " ␍ cr (enter)
+dig fu 402  " ƒ function
+dig ar 170  " ª argument
+dig re 8630 " ↶ return
+dig fo 8635 " ↻ for
+dig fe 8230 " … foreach
+dig ct 8997 " ⌥ ctrl
+dig gr 9638 " ▦ grid
+dig ex 8285 " ⁝ execute
 
 " Mappings
 dig yy 255   " ÿ

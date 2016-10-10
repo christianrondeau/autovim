@@ -33,7 +33,7 @@ Expressions in `(...)` will be evaluated rather than sent as-is.
 * `ñ...`: Runs the specified commands in _normal_ mode (`normal ...`)
 * `qñ...`: Loops the specified commands (same as `qq...@qq@q`)
 * `%ñ...`: Runs the specified commands in _normal_ mode on every line (`%normal ...`)
-    * `⁝...` p: Runs the specified cpmmand in _command_ mode (`execute "..."`9638)
+* `⁝...` p: Runs the specified cpmmand in _command_ mode (`execute "..."`9638)
 * `®<register>=<expr>`: Assigns a string to the register - autovim aliases are parsed (e.g. `®a=®xi#␛`)
 
 ### Script uncompressed commands
@@ -83,8 +83,14 @@ Finally, a function can be executed and even repeated in normal mode:
 Loops are in fact a `while` that increments a register up to an upper bound. The syntax is `↻<register><lower-bound-expr>:<upper-bound-expr>`, ended by `e↻`.
 
     ↻i1:10
-    ña®
+    ño®i
     e↻
+
+It is also possible to loop in a list (for each). The syntax is `…<register><list-expr>`, ended by `e…`.:
+
+    …isplit(@a)
+    ño®i
+    e…
 
 ### Utilities inside compressed commands
 

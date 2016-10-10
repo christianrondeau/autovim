@@ -49,6 +49,10 @@ endfunction
 %sm/\v^↻(.)([^:]+):(.+$)/let @\1=\2-1\rwhile @\1<\3\rlet @\1=@\1+1/e
 %sm/\v^e↻$/endwhile/e
 
+" Expands multi-line loops
+%sm/\v^…(.)(.+$)/for @\1 in \2/e
+%sm/\v^e…$/endfor/e
+
 " Expands special autovim chars
 silent g/\v^([q%]?ñ|®.\=|↶|⁝)/call ExpandQuoted()
 silent g/\v^(\@.\=)/call ExpandUnquoted()

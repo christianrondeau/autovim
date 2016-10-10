@@ -5,3 +5,9 @@ let @i=@i+1
 let @a = nr2char(@i+96)
 execute "normal i".@a.": \<esc>".@i."a=\<esc>a\<cr>"
 endwhile
+
+" Prints split items on lines
+let @l = "abc def ghi"
+for @i in split(@l)
+execute "normal o".@i.""
+endfor

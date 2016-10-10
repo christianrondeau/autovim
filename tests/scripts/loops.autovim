@@ -3,3 +3,9 @@
 @a=nr2char(@i+96)
 ñi®a: ␛®ia=␛a␍
 e↻
+
+" Prints split items on lines
+®l=abc def ghi
+…isplit(@l)
+ño®i
+e…
