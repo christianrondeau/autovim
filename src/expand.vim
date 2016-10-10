@@ -2,7 +2,7 @@
 scriptencoding utf-8
 
 " Wrap parenthesis in non-quotes
-let @q="f(d%i\"..\"\ehP@q"
+let @p="f(i\".\e%a.\"\e@q"
 
 function ExpandQuoted()
 
@@ -10,7 +10,7 @@ function ExpandQuoted()
 	sm/\v"/\\"/e
 
 	" Do not escape within ()
-	norm @q
+	norm @p
 
 	" Registers (except string begin)
 	sm/\v^@<!®(.)/".@\1."/e
@@ -83,4 +83,4 @@ silent g/\v^(\@.\=)/call ExpandUnquoted()
 %sm/\v▦(.+),(.+),(.*)$/call Grd(\1, \2, "\3")/e
 
 " Reset expanding macros
-let @q=""
+let @p=""
