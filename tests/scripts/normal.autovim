@@ -3,4 +3,4 @@
 
 " Yank all and paste twice
 ⁝%y
-ñ(1+1)p
+ñ(1+(1))p

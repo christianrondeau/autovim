@@ -1,13 +1,16 @@
 " Autovim expanding script
 scriptencoding utf-8
 
+" Wrap parenthesis in non-quotes
+let @q="f(d%i\"..\"\ehP@q"
+
 function ExpandQuoted()
 
 	" Escape quotes
 	sm/\v"/\\"/e
 
 	" Do not escape within ()
-	sm/\v(\([^)]+\))/".\1."/e
+	norm @q
 
 	" Registers (except string begin)
 	sm/\v^@<!®(.)/".@\1."/e
@@ -78,3 +81,6 @@ silent g/\v^(\@.\=)/call ExpandUnquoted()
 
 " Built-in functions
 %sm/\v▦(.+),(.+),(.*)$/call Grd(\1, \2, "\3")/e
+
+" Reset expanding macros
+let @q=""
