@@ -4,7 +4,7 @@ scriptencoding utf-8
 " Wrap parenthesis in non-quotes
 let @p="f(i\".\e%a.\"\e@p"
 
-function ExpandQuoted()
+function! ExpandQuoted()
 
 	" Escape quotes
 	sm/\v"/\\"/e
@@ -28,7 +28,7 @@ function ExpandQuoted()
 
 endfunction
 
-function ExpandUnquoted()
+function! ExpandUnquoted()
 
 	" Variables
 	sm/\vª(.)/a:\1/e
@@ -80,7 +80,7 @@ silent g/\v^(\@.\=)/call ExpandUnquoted()
 %sm/\v^↶(.+)/return \1/e
 
 " Built-in functions
-%sm/\vcall Grd((.+),(.+),(.*)$/call Grd(\1,  \2, " "\3")/e")
+%sm/\v▦(.+),(.+),(.*)$/call Grd(\1, \2, "\3")/e
 
 " Reset expanding macros
 let @p=""
