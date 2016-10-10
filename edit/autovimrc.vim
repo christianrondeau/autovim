@@ -33,3 +33,6 @@ dig ly 253   " ý
 dig dd 273   " đ
 dig gg 287   " ğ
 dig gv 1143  " ѷ
+dig cv 1142  " Ѷ
+dig bs 8602  " ↚
+

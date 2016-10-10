@@ -28,6 +28,8 @@ To make editing these scripts easier,you can `source` the [edit/autovimrc.vim](e
 
 These commands allow executing *compressed* expressions; strings that are typically run in *normal* mode.
 
+Expressions in `(...)` will be evaluated rather than sent as-is.
+
 * `ñ...`: Runs the specified commands in _normal_ mode (`normal ...`)
 * `qñ...`: Loops the specified commands (same as `qq...@qq@q`)
 * `%ñ...`: Runs the specified commands in _normal_ mode on every line (`%normal ...`)
@@ -104,8 +106,14 @@ These commands require Autovim's `vimrc`, and are run directly by Vim.
 * `đ`: `dd` deletes current line
 * `ğ`: `gg` moves to the beginning of the file
 * `ѷ`: `gv` recover previous visual selection
+* `Ѷ`: `<c-v>` enters block visual mode
+* `↚`: `<backspace>` deletes previous char in *insert* mode
+* `←`: `<left>` moves left in *insert* mode
+* `→`: `<right>` moves right in *insert* mode
+* `↓`: `<down>` moves down in *insert* mode
+* `↑`: `<up>` moves up in *insert* mode
 
 ## Built-in functions
 
 * `Rnd(max)` (or `¿` in compressed commands) returns an integer between 1 and *max*.
-* `Grd(width, height, char)` (or `▦<width-expr>,<height-expr>,<char-expr>` in compressed commands) draws a grid and returns the cursor to the first character (top-left)
+* `Grd(width, height, char)` (or `▦<width-expr>,<height-expr>,<char-expr>` in compressed commands) draws a grid and returns the cursor to the first character (top-left)returns an integer between 1 and *max*.

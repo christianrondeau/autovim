@@ -1,5 +1,6 @@
 " Writes 'Match 1' and increments twice
 ñiLine 1␍Match 1␛2⌥a
 
-" Yank all (does not affect output)
+" Yank all and paste twice
 ⁝%y
+ñ(1+1)p

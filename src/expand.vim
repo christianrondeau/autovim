@@ -4,7 +4,10 @@ scriptencoding utf-8
 function ExpandQuoted()
 
 	" Escape quotes
-	sm/\v"/\\"/e 
+	sm/\v"/\\"/e
+
+	" Do not escape within ()
+	sm/\v(\([^)]+\))/".\1."/e
 
 	" Registers (except string begin)
 	sm/\v^@<!®(.)/".@\1."/e
