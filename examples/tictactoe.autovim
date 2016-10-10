@@ -1,0 +1,19 @@
+" Link: http://codegolf.stackexchange.com/q/95629/59757
+" Command: ./bin/autovim run examples/tictactoe.autovim -ni -@m "Ob2 Xc2 Ob3 Xa1"
+" Output:
+"      |     |     
+"   X  |  -  |  -  
+" _____|_____|_____
+"      |     |     
+"   -  |  O  |  X  
+" _____|_____|_____
+"      |     |     
+"   -  |  O  |  -  
+"      |     |     
+
+" Bytes: 111
+
+ñ5i ␛a|␛ÿp3hr-phv0r_⌥v$kkyPPy2jPP$⌥vG$xGđkÿjp
+…nsplit(@m)
+ñğ0(@n[2]*3-2)j((char2nr(@n[1])-96)*6-4)lr(@n[0])
+e…
