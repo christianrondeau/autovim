@@ -48,6 +48,7 @@ endfunction
 
 " Expands multi-line for
 %sm/\v^↻(.)([^:]+):(.+$)/let @\1=\2-1\rwhile @\1<\3\rlet @\1=@\1+1/e
+%sm/\v^↻(.)(.+$)/let @\1=0\rwhile @\1<\2\rlet @\1=@\1+1/e
 %sm/\v^e↻$/endwhile/e
 
 " Expands multi-line for each

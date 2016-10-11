@@ -1,15 +1,21 @@
 " Writes numbers 1 to 10 (loops start at 1 by default)
-↻i1:10
+↻i10
 @a=nr2char(@i+96)
 ñi®a: ␛®ia=␛a␍
 e↻
+ño
+
+" Writes numbers 2 to 7
+↻i2:3+4
+ña®i
+e↻
+ño
 
 " Prints all items in list
 let a = [1,2,3]
 …ia
 ña®i
 e…
-
 ño
 
 " Prints split items on lines
