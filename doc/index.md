@@ -105,6 +105,7 @@ These special commands can be used inside lines like `ñ`.
 * `®<register>`: Injects the value of the given register. If `@a` equals `5`, then `ñ®ap` will execute `5p` in _normal_ mode.
 * `␛`: Sends `<esc>`
 * `␍`: Sends `<cr>`
+* `█`: Sends `<ctrl>` + `v` (block mode)
 * `⌥<key>`: Sends `<ctrl> + <key>`
 
 ### Custom mappings
@@ -118,7 +119,6 @@ These commands require Autovim's `vimrc`, and are run directly by Vim.
 * `đ`: `dd` deletes current line
 * `ğ`: `gg` moves to the beginning of the file
 * `ѷ`: `gv` recover previous visual selection
-* `Ѷ`: `<c-v>` enters block visual mode
 * `↚`: `<backspace>` deletes previous char in *insert* mode
 * `←`: `<left>` moves left in *insert* mode
 * `→`: `<right>` moves right in *insert* mode

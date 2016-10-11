@@ -23,6 +23,7 @@ dig re 8630 " ↶ return
 dig fo 8635 " ↻ for
 dig fe 8230 " … foreach
 dig ct 8997 " ⌥ ctrl
+dig cv 9608 " █ ctr-v
 dig gr 9638 " ▦ grid
 dig ex 8285 " ⁝ execute
 
@@ -34,6 +35,5 @@ dig ly 253   " ý
 dig dd 273   " đ
 dig gg 287   " ğ
 dig gv 1143  " ѷ
-dig cv 1142  " Ѷ
 dig bs 8602  " ↚
 

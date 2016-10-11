@@ -27,7 +27,6 @@ nnoremap ŷ yl
 nnoremap ý lyh
 nnoremap đ dd
 nnoremap ѷ gv
-nnoremap Ѷ <c-v>
 nnoremap ğ gg
 inoremap → <right>
 inoremap ← <left>

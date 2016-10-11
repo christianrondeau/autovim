@@ -1,6 +1,6 @@
-" Insert a random amount of =, and delete them all but one
+" Insert a random amount of +, and reset to +
 @r=¿123
-ñ¿10i=␛0ld$o
+ñi12-␛█¿10hr+Vr+o
 
 " Draw a 0x1 (simple line break) grid and a 3x3 grid of #
 @r=3

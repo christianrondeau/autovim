@@ -18,6 +18,7 @@ function! ExpandQuoted()
 	" Keys
 	sm/\v␛/\\\<esc\>/e
 	sm/\v␍/\\\<cr\>/e
+	sm/\v█/\\\<c-v\>/e
 	sm/\v⌥(.)/\\\<c-\1\>/e
 
 	" Variables
