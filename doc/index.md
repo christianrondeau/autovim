@@ -92,6 +92,12 @@ It is also possible to loop in a list (for each). The syntax is `…<register><l
     ño®i
     e…
 
+When only a register is provided, it is automatically split: `…<register>@<register-to-split>`, ended by `e…`.:
+
+    …i@a
+    ño®i
+    e…
+
 ### Utilities inside compressed commands
 
 These special commands can be used inside lines like `ñ`.

@@ -4,8 +4,16 @@
 ñi®a: ␛®ia=␛a␍
 e↻
 
+" Prints all items in list
+let a = [1,2,3]
+…ia
+ña®i
+e…
+
+ño
+
 " Prints split items on lines
 ®l=abc def ghi
-…isplit(@l)
+…i@l
 ño®i
 e…

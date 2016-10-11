@@ -45,11 +45,12 @@ endfunction
 %sm/\v^ƒ(.)$/nmap ƒ\1 @=':call \1()<c-v><cr>'<cr>\rfunction! \1(...)/e
 %sm/\v^eƒ$/endfunction/e
 
-" Expands multi-line loops
+" Expands multi-line for
 %sm/\v^↻(.)([^:]+):(.+$)/let @\1=\2-1\rwhile @\1<\3\rlet @\1=@\1+1/e
 %sm/\v^e↻$/endwhile/e
 
-" Expands multi-line loops
+" Expands multi-line for each
+%sm/\v^…(.)(\@.$)/for @\1 in split(\2)/e
 %sm/\v^…(.)(.+$)/for @\1 in \2/e
 %sm/\v^e…$/endfor/e
 
