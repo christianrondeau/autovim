@@ -80,7 +80,7 @@ Finally, a function can be executed and even repeated in normal mode:
 
 ### Loops
 
-Loops are in fact a `while` that increments a register up to an upper bound. The syntax is `↻<register><lower-bound-expr>:<upper-bound-expr>`, ended by `e↻`.
+Loops are in fact a `while` that increments a register up to an upper bound. The syntax is `↻<register><lower-bound-expr>:<upper-bound-expr>`, ended by `e↻`. The lower bound is optional (you can omit `<lower-bound-expr:`), it will start by 1 by default.
 
     ↻i1:10
     ño®i
