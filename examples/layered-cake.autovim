@@ -1,15 +1,9 @@
 " Prints a layered cake
 " Source: http://codegolf.stackexchange.com/a/94430/59757
 " Command: ./bin/autovim run examples/layered-cake.autovim -ni -@n 3
+" Bytes: 73
 
 ®z=Vkyjply4lpjy4hp
 ñ2i+␛5i-␛o||␛5i ␛®n@zddl4xggd$i_|_|_
-@w=15
+@w=@n*4+3
 ⁝%ce ®w
-
-" " Ungolfed:
-" fu A(n)
-" 	let @z="Vkyjply4lpjy4hp"
-" 	exe "norm 2i+\e5i-\eo||\e5i \e".a:n."@zddl4xggd$i_|_|_"
-" 	exe "%ce ".(a:n*4+3)
-" endfu

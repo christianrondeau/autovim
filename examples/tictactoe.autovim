@@ -1,3 +1,4 @@
+" Prints a tic tac toe board with moves
 " Link: http://codegolf.stackexchange.com/q/95629/59757
 " Command: ./bin/autovim run examples/tictactoe.autovim -ni -@m "Ob2 Xc2 Ob3 Xa1"
 " Output:
@@ -10,8 +11,7 @@
 "      |     |     
 "   -  |  O  |  -  
 "      |     |     
-
-" Bytes: 111
+" Bytes: 101
 
 ñ5i ␛a|␛ÿp3hr-phv0r_█$kkyPPy2jPP$█G$xGđkÿjp
 …n@m

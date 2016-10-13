@@ -40,15 +40,15 @@ function! ExpandUnquoted()
 endfunction
 
 " Expands single-line functions
-%sm/\v^ƒ(.)(.+$)/nmap ƒ\1 @=':call \1()<c-v><cr>'<cr>\rfunction! \1(...)\r\2\rendfunction/e
+%sm/\v^ƒ(.)(.+$)/ƒ\1\r\2\reƒ/e
 
 " Expands multi-line functions
 %sm/\v^ƒ(.)$/nmap ƒ\1 @=':call \1()<c-v><cr>'<cr>\rfunction! \1(...)/e
 %sm/\v^eƒ$/endfunction/e
 
 " Expands multi-line for
+%sm/\v^↻(.)([^:]+$)/↻\11:\2/e
 %sm/\v^↻(.)([^:]+):(.+$)/let @\1=\2-1\rwhile @\1<\3\rlet @\1=@\1+1/e
-%sm/\v^↻(.)(.+$)/let @\1=0\rwhile @\1<\2\rlet @\1=@\1+1/e
 %sm/\v^e↻$/endwhile/e
 
 " Expands multi-line for each
