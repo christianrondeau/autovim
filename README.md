@@ -4,6 +4,8 @@ Autovim is simply [Vimscript](http://vim.org) optimized for processing files usi
 
 ## Installation
 
+Autovim currently works on Linux and Windows using Git Bash (not in PowerShell or cmd.exe). You also need to have VIM installed and available in your `PATH`. It is tested against VIM `7.4.1721` and `8.0`.
+
 Since this is still under development, installation is done manually; simply checkout this repo, run `chmod +x ./bin/autovim` and you're good to go!
 
 ## Usage
