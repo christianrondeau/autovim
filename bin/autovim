@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
 ParamsArray=''
 ReadFromStdIn=true
-for i in "$@"; do 
+for p in "$@"; do 
 	# Check if we need to read from stdin
-	if [[ $i == "-i" || $i == "--in" || $i == "-ni" || $i == "--no-in"  ]] ; then
+	if [[ $p == "-i" || $p == "--in" || $p == "-ni" || $p == "--no-in"  ]] ; then
 		ReadFromStdIn=false
 	fi
 
-	# Escape input parameters ad put in a comma separated atring list
-  i="${i//\\/\\\\}"
-  ParamsArray="$ParamsArray\"${i//\"/\\\"}\","
+	# Escape input parameters and put in a comma-separated strings list
+  p="${p//\\/\\\\}"
+  ParamsArray="$ParamsArray\"${p//\"/\\\"}\","
 done
 
 # Read from stdin
@@ -33,12 +35,20 @@ VimLaunch="vim -u ${0%/*}/../src/vimrc.vim --not-a-term -c '$VimCmdScript' -c '$
 # Launch
 eval "$VimLaunch"
 
-# If the in temp file was used clear it
+VimCmdStatus=$?
+if [ $VimCmdStatus != 0 ]; then
+	>&2 echo -e "${RED}Vim exited with a non-zero status code: $VimCmdStatus${NC}."
+	>&2 echo "Make sure Vim is installed, in the PATH and is at least at version 7.4.1721."
+ 	>&2 echo "Find and create issues at https://github.com/christianrondeau/autovim/issues"
+	exit
+fi
+
+# If the stdin temp file was used, clear it
 if [ -f "$StdInTempFile" ]; then
 	rm "$StdInTempFile"
 fi
 
-# If the out temp file was used, print to stdout and clear it
+# If the stdout temp file was used, print to stdout and clear it
 if [ -f "$StdOutTempFile" ]; then
 	cat "$StdOutTempFile"
 	rm "$StdOutTempFile"
