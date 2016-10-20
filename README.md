@@ -12,7 +12,9 @@ Since this is still under development, installation is done manually; simply che
 
 `autovim run script.autovim` will run the specified script on whatever is provided to stdin, and write the output to stdout.
 
-See [Autovim Documentation](doc/index.md) for more information.
+See the [tutorial](doc/tutorial.md) to get started.
+
+See the [documentation](doc/index.md) for more information.
 
 ## Why
 
@@ -55,6 +57,7 @@ All of Autovim and its documentation was written on an Android phone (Samsung S7
 
 ## Resources
 
+* The [tutorial](doc/tutorial.md) and [documentation](doc/index.md) should (hppefully) be helpful
 * [Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com) for a great introduction to Vimscript
-* [Prpgramming Puzzles and Code Golf](http://codegolf.stackexchange.com) for crazy examples of efficient Vim (and other languages) usage
+* [Programming Puzzles and Code Golf](http://codegolf.stackexchange.com) for crazy examples of efficient Vim (and other languages) usage
 * And remember Vim's built-in help: `:help` and `:helpgrep`

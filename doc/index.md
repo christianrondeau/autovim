@@ -1,5 +1,7 @@
 # Autovim Documentation
 
+See the [tutorial](tutorial.md) to understand the basics first.
+
 ## Command Line
 
 ### Commands
