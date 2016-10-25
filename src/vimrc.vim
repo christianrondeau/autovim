@@ -6,6 +6,8 @@ scriptencoding utf-8
 " }}}
 
 " Runtime settings {{{
+set noswapfile                     " No .swp file
+set nobackup                       " No backup file
 set visualbell t_vb=               " No screen flash (Android)
 set noerrorbells                   " No error sounds
 " }}}

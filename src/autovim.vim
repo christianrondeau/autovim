@@ -58,7 +58,7 @@ try
 	endif
 
 	echom "Opening script ".s:scriptfile
-	execute "noswap edit! ".s:scriptfile
+	execute "edit! ".s:scriptfile
 	normal! gg
 	" }}}
 
@@ -84,7 +84,7 @@ try
 			endif
 
 			echom "Opening ".s:inputfile
-			execute "noswap edit! ".s:inputfile
+			execute "edit! ".s:inputfile
 			normal! gg
 		else
 			enew!
