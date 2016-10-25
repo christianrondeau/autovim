@@ -1,5 +1,7 @@
 # Autovim (UNDER DEVELOPMENT)
 
+[![Build Status](https://travis-ci.org/christianrondeau/autovim.svg?branch=master)](https://travis-ci.org/christianrondeau/autovim)
+
 Autovim is simply [Vimscript](http://vim.org) optimized for processing files using the command line. It also has special syntax additions, built-in mappings and updated defaults to make it better suited for [code golfing](http://codegolf.stackexchange.com). It is directly inspired by [V](https://github.com/DJMcMayhem/V).
 
 ## Installation
