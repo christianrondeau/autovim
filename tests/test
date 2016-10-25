@@ -3,15 +3,27 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 cd "${0%/*}"
+exitCode=0
+
+function report {
+	if [ $1 -eq 0 ]; then
+		echo -e "$2 $3 ${GREEN}pass${NC}"
+	else
+		exitCode=$1
+		echo -e "$2 $3 ${RED}fail${NC}"
+	fi
+}
 
 function test {
 	rm -f ./output/$1.expanded.vim
 	../bin/autovim expand ./scripts/$1.autovim --no-in --out ./output/$1.expanded.vim
-	diff -q ${WINDIR+--strip-trailing-cr} ./expected/$1.expanded.vim ./output/$1.expanded.vim && echo -e "$1 expand ${GREEN}pass${NC}" || echo -e "$1 expand ${RED}fail${NC}"
+	diff -q ${WINDIR+--strip-trailing-cr} ./expected/$1.expanded.vim ./output/$1.expanded.vim
+	report $? $1 "expand"
 
 	rm -f ./output/$1.result.vim
 	../bin/autovim run ./scripts/$1.autovim --out ./output/$1.result.txt "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
-	diff -q ${WINDIR+--strip-trailing-cr} ./expected/$1.result.txt ./output/$1.result.txt && echo -e "$1 run ${GREEN}pass${NC}" || echo -e "$1 run ${RED}fail${NC}"
+	diff -q ${WINDIR+--strip-trailing-cr} ./expected/$1.result.txt ./output/$1.result.txt
+	report $? $1 "run"
 }
 
 echo "Running tests..."
@@ -24,3 +36,5 @@ test mappings --in ./samples/sample.txt
 test functions --no-in
 test loops --no-in
 test built-ins --no-in
+
+exit $exitCode
